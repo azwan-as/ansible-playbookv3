@@ -1,0 +1,16 @@
+---
+- name: Creating users using loop
+  hosts: all
+  tasks:
+  - name: Creating local user
+    win_user:
+      name: "{{item.name}}"
+      groups: "{{item.grp"
+      description: "{{item.desc}}"
+      state: present
+    loop: 
+    - {name: 'itadmin', grp: 'Administrators', desc: 'New Admin user'}
+    - {name: 'ituser1', grp: 'Users', desc: 'user'}
+    - name: 'ituser2'
+      grp: 'Users'
+      desc: 'Local Users'
