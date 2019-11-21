@@ -1,0 +1,22 @@
+---
+- name: Testing Handlers
+  hosts: all
+  force_handlers: true
+  tasks:
+  - block:
+    - name: Install 7zip
+      win_chocolatey:
+        name: flashplayerpp
+        state: present
+    rescue: 
+    - name: Install 7zip
+      win_chocolatey:
+        name: flashplayerpp
+        state: absent
+    always:
+    - name: This is another task
+      debug:
+        msg: Final task
+  handlers:
+  - name: reboot server
+    win_reboot:
