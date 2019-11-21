@@ -12,5 +12,7 @@
       name: "{{item}}"
       state: present
       loop: "{{my_packages}"
-    when: ansible_facts['distribution'] == "Microsoft Windows Server 2016 Core" and
-          ansible_facts['architecture'] == "64-bit"
+    when: ansible_facts['date_time'][date] == "2017-11-21" or ansible_facts['date_time'][month] == 11 or ansible_distribution_major_version == 10
+     - ansible_facts['distribution'] == "Microsoft Windows Server 2016 Core"
+     - ansible_facts['architecture'] == "64-bit"
+     
