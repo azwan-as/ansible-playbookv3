@@ -6,13 +6,17 @@
     win_chocolatey:
       name: vlc
       state: present
-    ignore_errors: true
+    # ignore_errors: true
     notify:
     - reboot server
   - name: failing the tasks
-    fail:
+    debug:
       msg: Failing the task as required
-    ignore_errors: true
+    failed_when: true
+    #ignore_errors: true
+  - name: This is another task
+    debug:
+      Final task
   handlers:
   - name: reboot server
     win_reboot:
