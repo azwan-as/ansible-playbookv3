@@ -1,7 +1,6 @@
 ---
 - name: Testing Handlers
   hosts: all
-  force_handlers: true
   tasks:
   - block:
     - name: Install 7zip
@@ -13,6 +12,8 @@
       win_chocolatey:
         name: flashplayerpp
         state: absent
+      notify:
+      - reboot server
     always:
     - name: This is another task
       debug:
