@@ -1,30 +1,32 @@
 ---
-
 - name: Collect facts
   hosts: all
-  
-  gather_subset:
+  #vars:
+  #  var_file: c:\temp\facts.ini
+  tasks:
+  - name: Gather facts and saved in a txt file
+    gather_subset:
       - 'all'
       - 'any'
       - facter
 
-# Display only facts about certain interfaces.
-# ansible all -m setup -a 'filter=ansible_eth[0-2]'
+    # Display only facts about certain interfaces.
+    # ansible all -m setup -a 'filter=ansible_eth[0-2]'
 
-# Restrict additional gathered facts to network and virtual (includes default minimum facts)
-# ansible all -m setup -a 'gather_subset=network,virtual'
+    # Restrict additional gathered facts to network and virtual (includes default minimum facts)
+    # ansible all -m setup -a 'gather_subset=network,virtual'
 
-# Collect only network and virtual (excludes default minimum facts)
-# ansible all -m setup -a 'gather_subset=!all,!any,network,virtual'
+    # Collect only network and virtual (excludes default minimum facts)
+    # ansible all -m setup -a 'gather_subset=!all,!any,network,virtual'
 
-# Do not call puppet facter or ohai even if present.
-# ansible all -m setup -a 'gather_subset=!facter,!ohai'
+    # Do not call puppet facter or ohai even if present.
+    # ansible all -m setup -a 'gather_subset=!facter,!ohai'
 
-# Only collect the default minimum amount of facts:
-# ansible all -m setup -a 'gather_subset=!all'
+    # Only collect the default minimum amount of facts:
+    # ansible all -m setup -a 'gather_subset=!all'
 
-# Collect no facts, even the default minimum subset of facts:
-# ansible all -m setup -a 'gather_subset=!all,!min'
+    # Collect no facts, even the default minimum subset of facts:
+    # ansible all -m setup -a 'gather_subset=!all,!min'
 
-# Display facts from Windows hosts with custom facts stored in C(C:\custom_facts).
-  ansible windows -m setup -a "fact_path='c:\custom_facts'"
+    # Display facts from Windows hosts with custom facts stored in C(C:\custom_facts).
+    ansible windows -m setup -a "fact_path='c:\temp'"
