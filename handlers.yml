@@ -2,7 +2,7 @@
 - name: Testing Handlers
   hosts: all
   tasks:
-  - name: Install vlc
+  - name: Install 7zip
     win_chocolatey:
       name: vlc
       state: present
@@ -13,7 +13,7 @@
     debug:
       msg: Failing the task as required
     failed_when: true
-    ignore_errors: true
+   # ignore_errors: true
   - name: This is another task
     debug:
       msg: Final task
