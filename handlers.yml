@@ -8,6 +8,6 @@
       state: present
     notify:
     - reboot server
-  handler:
+  handlers:
   - name: reboot server
     win_reboot:
