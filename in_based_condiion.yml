@@ -2,7 +2,7 @@
 - name: Testing a condition
   hosts: all
   vars: 
-    my_service: Web_Server
+    my_service: Web-Server
     supported_distros:
       - "Microsoft Windows Server 2016 Datacenter"
       - "Microsoft Windows Server 2016 Core"
