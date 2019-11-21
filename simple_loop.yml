@@ -1,5 +1,5 @@
 ---
-- name: Testing Simle loops
+- name: Testing Simple loops
   hosts: all
   tasks:
   - name: Install Packages from Chocolatey

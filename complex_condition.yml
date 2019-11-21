@@ -1,0 +1,16 @@
+---
+- name: Testing complex condition with loop
+  hosts: all
+  vars:
+    my_packages:
+    - jre8
+    - javaruntime-preventasktoolbar
+    - dropbox
+  tasks:
+  - name: Install Packages from Chocolatey
+    win_chocolatey:
+      name: "{{item}}"
+      state: present
+      loop: "{{my_packages}"
+    when: ansible_facts['distribution'] == "Microsoft Windows Server 2016 Core" and
+          ansible_facts['architecture'] == "64-bit"
