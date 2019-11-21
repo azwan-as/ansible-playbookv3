@@ -8,6 +8,9 @@
       state: present
     notify:
     - reboot server
+  - name: failing the tasks
+    fail:
+      msg: Failing the task as required
   handlers:
   - name: reboot server
     win_reboot:
