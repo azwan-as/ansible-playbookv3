@@ -1,0 +1,12 @@
+---
+- name: Testing Simle loops
+  hosts: all
+  tasks:
+  - name: Install Packages from Chocolatey
+    win_chocolatey:
+      name: "{{item}}"
+      state: present
+    loop:
+    - jre8
+    - javaruntime-preventasktoolbar
+    - dropbox
