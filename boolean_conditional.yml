@@ -12,6 +12,9 @@
         include_management_tools: yes
       when: run_my_task
       register: feature_output
+    - name: Display feature_output
+      debug:
+        var: feature_output
     - name: Reboot if installation requires installation
       win_reboot:
       when: feature_output.reboot_required
