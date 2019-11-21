@@ -5,7 +5,7 @@
   - name: Creating local user
     win_user:
       name: "{{item.name}}"
-      groups: "{{item.grp"
+      groups: "{{item.grp}}"
       description: "{{item.desc}}"
       state: present
     loop: 
