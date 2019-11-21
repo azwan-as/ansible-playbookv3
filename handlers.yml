@@ -4,7 +4,7 @@
   tasks:
   - name: Install 7zip
     win_chocolatey:
-      name: vlc
+      name: 7zip
       state: present
     ignore_errors: true
     notify:
