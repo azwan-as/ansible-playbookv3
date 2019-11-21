@@ -13,7 +13,7 @@
     debug:
       msg: Failing the task as required
     failed_when: true
-    #ignore_errors: true
+    ignore_errors: true
   - name: This is another task
     debug:
       Final task
